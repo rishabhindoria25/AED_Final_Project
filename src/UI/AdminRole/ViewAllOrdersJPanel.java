@@ -54,7 +54,7 @@ public class ViewAllOrdersJPanel extends javax.swing.JPanel {
     public ViewAllOrdersJPanel(JPanel userProcessContainer,  Enterprise enterprise, Account account, Ecosystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.userAccount = userAccount;
+        this.userAccount = account;
         this.ecosystem = ecosystem;
         this.enterprise = enterprise;
          populateTable();
