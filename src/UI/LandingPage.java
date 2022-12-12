@@ -12,9 +12,15 @@ import NUHealthCare.NetworkSystem.NetworkSystem;
 import NUHealthCare.Org.Org;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Image;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+
+
+
 
 /**
  *
@@ -31,6 +37,9 @@ public class LandingPage extends javax.swing.JFrame {
     public LandingPage() {
         initComponents();
         ecosystem = db4oUtil.retrieveSystem();
+        
+        Image icon = new ImageIcon(this.getClass().getResource("/LandIcon.png")).getImage();
+        this.setIconImage(icon);
     }
 
     /**
