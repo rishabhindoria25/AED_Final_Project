@@ -285,7 +285,7 @@ public class InsuranceProcessRequest extends javax.swing.JPanel {
                 }
                 //Send SMS
                 try {
-                    SMS.SendSMS("+17324866359", "Hi " + insuranceJob.
+                    SMS.SendSMS("+18573138300", "Hi " + insuranceJob.
                             getInsuranceCustomer().
                             getCustomerFName() + ","
                             + "\n\nYour Insurance claim of amount: " + insuranceJob.
@@ -335,7 +335,7 @@ public class InsuranceProcessRequest extends javax.swing.JPanel {
                 }
                 //Send SMS
                 try {
-                    SMS.SendSMS("+17324866359", "Hi " + insuranceJob.
+                    SMS.SendSMS("+18573138300", "Hi " + insuranceJob.
                             getInsuranceCustomer().
                             getCustomerFName() + ","
                             + "\n\nYour Insurance claim of amount: " + insuranceJob.

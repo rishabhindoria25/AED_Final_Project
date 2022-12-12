@@ -16,7 +16,7 @@ public class ConfigureASystem {
     public static Ecosystem configure() {
         Ecosystem ecosystem = Ecosystem.getInstanceOf();
 
-        String email = "no_reply_newagediagnostics@yahoo.com";
+        String email = "indoria.rishabh9@gmail.com";
 
         // NetworkSystem
         NetworkSystem ns1 = ecosystem.createAndAddSystem();

@@ -230,7 +230,7 @@ public class FinancialProcessRequestsJPanel extends javax.swing.JPanel {
                 }
                 //Send SMS
                 try {
-                    SMS.SendSMS("+17324866359", "Hi " + governmentFundRequest.getAdminName() + "," + "\nYour Funds are disbursed for location: " + governmentFundRequest.getLocation()
+                    SMS.SendSMS("+18573138300", "Hi " + governmentFundRequest.getAdminName() + "," + "\nYour Funds are disbursed for location: " + governmentFundRequest.getLocation()
                             + "\n\nThanks,\nGovernment");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
@@ -280,7 +280,7 @@ public class FinancialProcessRequestsJPanel extends javax.swing.JPanel {
                 }
                 //Send SMS
                 try {
-                    SMS.SendSMS("+17324866359", "Hi " + governmentFundRequest.getAdminName() + "," + "\nYour Funds request is rejected for location: " + governmentFundRequest.getLocation()
+                    SMS.SendSMS("+18573138300", "Hi " + governmentFundRequest.getAdminName() + "," + "\nYour Funds request is rejected for location: " + governmentFundRequest.getLocation()
                             + "\nMessage: " + message + "\n\nThanks,\nGovernment");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

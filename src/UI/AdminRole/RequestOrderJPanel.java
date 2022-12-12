@@ -424,7 +424,7 @@ public class RequestOrderJPanel extends javax.swing.JPanel {
             }
             //Send SMS
             try {
-                SMS.SendSMS("+17324866359", "Hi " + orderTreatmentWorkRequest.getHospitalAdmin().getEmployee().getEmpName() + "," + "\nYour order# : " + orderTreatmentWorkRequest.getOrder().getItemID() + " is placed"
+                SMS.SendSMS("+18573138300", "Hi " + orderTreatmentWorkRequest.getHospitalAdmin().getEmployee().getEmpName() + "," + "\nYour order# : " + orderTreatmentWorkRequest.getOrder().getItemID() + " is placed"
                         + "\n\nThanks,\n" + pharmaname + " Team");
             } catch (Exception e) {
                 System.out.println(e.getMessage());

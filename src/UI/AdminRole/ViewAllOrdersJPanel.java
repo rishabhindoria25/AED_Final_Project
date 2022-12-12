@@ -4,31 +4,19 @@
  */
 package UI.AdminRole;
 
-import java.awt.CardLayout;
-import java.awt.Component;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-import java.util.HashMap;
-import java.util.List;
-
+import NUHealthCare.Account.Account;
 import NUHealthCare.Ecosystem;
 import NUHealthCare.Enterprise.Enterprise;
 import NUHealthCare.Enterprise.HealthCareEnterprise;
-import NUHealthCare.Order.Order;
-import NUHealthCare.Order.OrderDirectory;
-import NUHealthCare.Org.Org;
-import NUHealthCare.Org.Org.Type; 
-import NUHealthCare.Org.OrgDirectory;
-import NUHealthCare.Patient.Patient;
-import NUHealthCare.Account.Account;
-import NUHealthCare.JobQueue.GovtFundJob;
-import NUHealthCare.JobQueue.OrderJob;
-import NUHealthCare.JobQueue.JobQueue;
 import NUHealthCare.JobQueue.JobRequest;
-//import NUHealthCare.JobQueue.;
-
+import NUHealthCare.JobQueue.OrderJob;
+import NUHealthCare.Order.Order;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -40,7 +28,7 @@ import org.jfree.data.general.DefaultPieDataset;
  * @author Rishabh,Uday,Aditi
  */
 public class ViewAllOrdersJPanel extends javax.swing.JPanel {
-    
+
     private JPanel userProcessContainer;
     private Enterprise enterprise;
     private Account userAccount;
@@ -51,41 +39,38 @@ public class ViewAllOrdersJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewAllOrdersJPanel
      */
-    public ViewAllOrdersJPanel(JPanel userProcessContainer,  Enterprise enterprise, Account account, Ecosystem ecosystem) {
+    public ViewAllOrdersJPanel(JPanel userProcessContainer, Enterprise enterprise, Account account, Ecosystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.ecosystem = ecosystem;
         this.enterprise = enterprise;
-         populateTable();
+        populateTable();
     }
-     public void populateTable() {
+
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblOrganization.getModel();
         HealthCareEnterprise restaurant = (HealthCareEnterprise) enterprise;
         List<Order> ordDir = restaurant.getOrderDirectory().getOrderList();
         model.setRowCount(0);
-        
+
         for (JobRequest request : userAccount.getJobQueue().getJobRequestList()) {
-            if(request instanceof OrderJob){
-            Object[] row = new Object[5];
-            row[0] = ((OrderJob) request).getOrder();
-            row[1] = ((OrderJob) request).getOrder().getItem();
-            row[2] = ((OrderJob) request).getOrder().getAmount();
-            row[3] = request.getStatus();
-            row[4] = request.getReceiver();
-            model.addRow(row);
-            if(request.getStatus().equals("Accepted"))
-            {
-              completed.add(((OrderJob) request).getOrder());
-            }
-            else
-            {
-               inProgress.add(((OrderJob) request).getOrder()); 
+            if (request instanceof OrderJob) {
+                Object[] row = new Object[5];
+                row[0] = ((OrderJob) request).getOrder();
+                row[1] = ((OrderJob) request).getOrder().getItem();
+                row[2] = ((OrderJob) request).getOrder().getAmount();
+                row[3] = request.getStatus();
+                row[4] = request.getReceiver();
+                model.addRow(row);
+                if (request.getStatus().equals("Accepted")) {
+                    completed.add(((OrderJob) request).getOrder());
+                } else {
+                    inProgress.add(((OrderJob) request).getOrder());
+                }
             }
         }
-       }
 
-        
     }
 
     /**
@@ -225,18 +210,16 @@ public class ViewAllOrdersJPanel extends javax.swing.JPanel {
 
     private void btnViewOrderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderDetailsActionPerformed
 
-        
-        
-             int selectedRow = tblOrganization.getSelectedRow();
+        int selectedRow = tblOrganization.getSelectedRow();
         if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null,"Please select a row first");
+            JOptionPane.showMessageDialog(null, "Please select a row first");
             return;
         }
-        
-        Order order = (Order)tblOrganization.getValueAt(selectedRow, 0);
-       
+
+        Order order = (Order) tblOrganization.getValueAt(selectedRow, 0);
+
         OrderJob request = null;
-        ViewOrdersJPanel viewJPanel = new ViewOrdersJPanel(userProcessContainer, request, order,"admin");
+        ViewOrdersJPanel viewJPanel = new ViewOrdersJPanel(userProcessContainer, request, order, "admin");
         userProcessContainer.add("viewJPanel", viewJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -244,33 +227,34 @@ public class ViewAllOrdersJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnViewOrderDetailsActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-               userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        
-        
-            RequestFundsJPanel dwjp = (RequestFundsJPanel) component;
-            dwjp.populateRequestTable();
-       
-        
+//               userProcessContainer.remove(this);
+//        Component[] componentArray = userProcessContainer.getComponents();
+//        Component component = componentArray[componentArray.length - 1];
+        userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+
+//            RequestFundsJPanel dwjp = (RequestFundsJPanel) component;
+//            dwjp.populateRequestTable();
+//
+//
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewPieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPieActionPerformed
         // TODO add your handling code here:
-        
+
         DefaultPieDataset defaultPieDataset = new DefaultPieDataset();
         defaultPieDataset.setValue("Orders still under Progress", inProgress.size());
         defaultPieDataset.setValue("Order Completed Successfully", completed.size());
         JFreeChart chart = ChartFactory.createPieChart("Order Status Pie Chart", defaultPieDataset, true, true, true);
-        PiePlot piePlot =(PiePlot) chart.getPlot();
+        PiePlot piePlot = (PiePlot) chart.getPlot();
         ChartFrame frame = new ChartFrame("Order Status Pie Chart", chart);
         frame.setVisible(true);
-        frame.setSize(500,500);
+        frame.setSize(500, 500);
 
     }//GEN-LAST:event_btnViewPieActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

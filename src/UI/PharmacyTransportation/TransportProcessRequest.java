@@ -225,7 +225,7 @@ public class TransportProcessRequest extends javax.swing.JPanel {
                 }
                 //Send SMS
                 try {
-                    SMS.SendSMS("+17324866359", "Hi " + orderItemRequest.getHospitalAdmin().getEmployee().getEmpName() + "," + "\nYour order# : " + orderItemRequest.getOrder().getItemID() + " is delivered!"
+                    SMS.SendSMS("+18573138300", "Hi " + orderItemRequest.getHospitalAdmin().getEmployee().getEmpName() + "," + "\nYour order# : " + orderItemRequest.getOrder().getItemID() + " is delivered!"
                             + "\n\nThanks");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
@@ -283,7 +283,7 @@ public class TransportProcessRequest extends javax.swing.JPanel {
                 }
                 //Send SMS
                 try {
-                    SMS.SendSMS("+17324866359", "Hi " + orderItemRequest.getHospitalAdmin().getEmployee().getEmpName() + "," + "\nYour order# : " + orderItemRequest.getOrder().getItemID() + " is rejected\nMessage: " + message
+                    SMS.SendSMS("+18573138300", "Hi " + orderItemRequest.getHospitalAdmin().getEmployee().getEmpName() + "," + "\nYour order# : " + orderItemRequest.getOrder().getItemID() + " is rejected\nMessage: " + message
                             + "\n\nThanks");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

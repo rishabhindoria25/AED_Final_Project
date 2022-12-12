@@ -240,7 +240,7 @@ public class InsuranceTreasurerProcessRequest extends javax.swing.JPanel {
             }
             //Send SMS
             try {
-                SMS.SendSMS("+17324866359", "Hi " + insuranceJob.getInsuranceCustomer().getCustomerFName() + "," + "\n\nYour Insurance claim of amount: " + insuranceJob.getClaimAmount()
+                SMS.SendSMS("+18573138300", "Hi " + insuranceJob.getInsuranceCustomer().getCustomerFName() + "," + "\n\nYour Insurance claim of amount: " + insuranceJob.getClaimAmount()
                         + " is disbursed" + "\n\nThanks,\n" + insuranceJob.getInsuranceCompany());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -266,7 +266,7 @@ public class InsuranceTreasurerProcessRequest extends javax.swing.JPanel {
             }
             //Send SMS
             try {
-                SMS.SendSMS("+17324866359", "Hi " + insuranceJob.getInsuranceCustomer().getCustomerFName() + "," + "\n\nYour Insurance claim of amount: " + insuranceJob.getClaimAmount()
+                SMS.SendSMS("+18573138300", "Hi " + insuranceJob.getInsuranceCustomer().getCustomerFName() + "," + "\n\nYour Insurance claim of amount: " + insuranceJob.getClaimAmount()
                         + " is rejected" + "\n\nThanks,\n" + insuranceJob.getInsuranceCompany());
             } catch (Exception e) {
                 System.out.println(e.getMessage());

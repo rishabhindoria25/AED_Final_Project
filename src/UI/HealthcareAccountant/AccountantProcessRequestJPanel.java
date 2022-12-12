@@ -361,7 +361,7 @@ public class AccountantProcessRequestJPanel extends javax.swing.JPanel {
             }
             //Send SMS
             try {
-                SMS.SendSMS("+17324866359", "Hi " + accountBillingJob.getPatient().getPatientFName() + "," + "\nYour Medical Bill of amount: " + accountBillingJob.getBillingAmt()
+                SMS.SendSMS("+18573138300", "Hi " + accountBillingJob.getPatient().getPatientFName() + "," + "\nYour Medical Bill of amount: " + accountBillingJob.getBillingAmt()
                         + " is processed" + "\n\nThanks,\n" + enterprise.getOrgName());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -398,7 +398,7 @@ public class AccountantProcessRequestJPanel extends javax.swing.JPanel {
         }
         //Send SMS
         try {
-            SMS.SendSMS("+17324866359", "Hi " + accountBillingJob.getPatient().getPatientFName() + "," + "\nYour Medical Bill of amount: " + accountBillingJob.getBillingAmt()
+            SMS.SendSMS("+18573138300", "Hi " + accountBillingJob.getPatient().getPatientFName() + "," + "\nYour Medical Bill of amount: " + accountBillingJob.getBillingAmt()
                     + " is processed" + "\n\nThanks,\n" + enterprise.getOrgName());
         } catch (Exception e) {
             System.out.println(e.getMessage());

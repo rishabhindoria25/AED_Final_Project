@@ -25,7 +25,7 @@ public abstract class Enterprise extends Org {
         this.enterpriseType = type;
         this.zipcode = zip;
         this.address = address;
-        this.email = "no_reply_newagediagnostics@yahoo.com";
+        this.email = "indoria.rishabh9@gmail.com";
         orgDirectory = new OrgDirectory();
     }
 

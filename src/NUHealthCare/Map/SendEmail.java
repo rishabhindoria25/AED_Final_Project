@@ -16,11 +16,11 @@ public class SendEmail {
 
     public static void send(String to, String msg, String sub) {
         //Get properties object
-        String from = "no_reply_newagediagnostics@yahoo.com";
-        String password = "Hello@123";
+        String from = "indoria.rishabh9@gmail.com";
+        String password = "ejesexlxvaqderlf";
         //String sub = "Your Order is dispatched for delivery";
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.mail.yahoo.com");
+        props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class",
                 "javax.net.ssl.SSLSocketFactory");

@@ -14,7 +14,7 @@ public class Employee {
     public Employee() {
         empID = empCount;
         empCount++;
-        this.empEmail = "no_reply_noagediagnostics@yahoo.com";
+        this.empEmail = "indoria.rishabh9@gmail.com";
     }
 
     public String getEmpName() {
